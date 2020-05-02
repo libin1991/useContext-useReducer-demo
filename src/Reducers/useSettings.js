@@ -12,10 +12,16 @@ const reducer = (state, action) => {
   }
 }
 
+const Context = createContext(initialState)
+
 export const useSettings = () => useContext(Context)
 
-const initialState = { isAdmin: false, hasPermission: true }
-const Context = createContext(initialState)
+const initialState = {
+  isAdmin: false,
+  hasPermission: true
+}
+
+
 
 export const SettingsCtxProvider = ({ children }) => {
   const [settingStore, settingDispatch] = useReducer(reducer, initialState)
